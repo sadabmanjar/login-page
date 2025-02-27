@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login </h2>
+        <form id="loginForm"  onsubmit="return validateForm()">
+            <div class="input-group">
+                <label for="username">username</label>
+                <input type="text" placeholder="Username" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+        <p id="error-message" class="error-message"></p>
+    </div>
+  
+    
+
+    <script>
+        function validateForm() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            // Simple validation (you can expand this as needed)
+            if (username === "" || password === "") {
+                errorMessage.textContent = "Please fill in all fhfgfgields.";
+                return false; // Prevent form submission
+            }
+
+            // Example of a simple username/password check (in a real app, validate on the server)
+            if (username === "admin" && password === "password") {
+                alert("Login successful!");
+                return true; // Allow form submission
+            } else {
+                errorMessage.textContent = "Invalid username or password.";
+                return false; // Prevent form submission
+            }
+        }
+    </script>
+</body>
+</html>
+
